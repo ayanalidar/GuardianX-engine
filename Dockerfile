@@ -7,4 +7,4 @@ COPY tsconfig.json ./
 COPY index.ts ./
 COPY src ./src
 ENV NODE_ENV=production
-CMD ["bun", "index.ts"]
+CMD ["sh", "-c", "printf '%s' \"$ZAI_CONFIG\" > .z-ai-config && exec bun index.ts"]
