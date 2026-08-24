@@ -89,8 +89,8 @@ async function ensureZaiConfig() {
   console.warn("[z-ai] WARNING: No config found and ZAI_CONFIG/ZAI_API_KEY not set — AI features will fail");
 }
 
-// Run config generation before starting the server
-await ensureZaiConfig();
+// z-ai config is written by start.sh — don't run ensureZaiConfig (it may crash on Render)
+// await ensureZaiConfig();
 
 // ── HTTP server ─────────────────────────────────────────────────────────────
 const httpServer = createServer(async (req: IncomingMessage, res: ServerResponse) => {
