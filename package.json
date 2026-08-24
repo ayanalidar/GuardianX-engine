@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node -e \"require('fs').writeFileSync('.z-ai-config', process.env.ZAI_CONFIG || '{}')\" && bun --hot index.ts",
-    "start": "node -e \"require('fs').writeFileSync('.z-ai-config', process.env.ZAI_CONFIG || '{}')\" && bun index.ts"
+    "dev": "sh -c 'printf %s \"$ZAI_CONFIG\" > .z-ai-config && bun --hot index.ts'",
+    "start": "sh -c 'printf %s \"$ZAI_CONFIG\" > .z-ai-config && bun index.ts'"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
